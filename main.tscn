@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://he3heggdxat5"]
+
+[ext_resource type="Script" uid="uid://tw18aht61sa1" path="res://player.gd" id="1_ig7tw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i8rjo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i8rjo"]
+
+[node name="Main" type="Node3D" unique_id=1324549041]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=206120808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Box1" type="CSGBox3D" parent="." unique_id=553836941]
+transform = Transform3D(0.9998477, 0.0009133884, 0.017428488, 0, 0.9986295, -0.05233596, -0.017452406, 0.05232799, 0.99847746, 5, 0, 2)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="Box2" type="CSGBox3D" parent="." unique_id=76336852]
+transform = Transform3D(0.9998477, 0.0009133884, 0.017428488, 0, 0.9986295, -0.05233596, -0.017452406, 0.05232799, 0.99847746, -2, 1, 4)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="Box3" type="CSGBox3D" parent="." unique_id=111852006]
+transform = Transform3D(0.9998477, 0.0009133884, 0.017428488, 0, 0.9986295, -0.05233596, -0.017452406, 0.05232799, 0.99847746, 0, 1, -6)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=546972985]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1409264914]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 8, 12)
+current = true
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1887811484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("1_ig7tw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=6199266]
+shape = SubResource("CapsuleShape3D_i8rjo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=8547972]
+mesh = SubResource("CapsuleMesh_i8rjo")
